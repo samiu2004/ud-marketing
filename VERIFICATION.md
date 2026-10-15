@@ -15,3 +15,7 @@ Local browser checks passed on October 15, 2026.
 This is a local implementation check, not a live-domain, formal accessibility, legal, tax, or security audit. WhatsApp messages were not sent. Third-party applications and approvals were not tested. Business experience figures were supplied by the owner. Cloudflare deployment and domain connection have not been performed.
 
 See README.md for deployment and content notes.
+
+## October 16 header and logo update
+
+Approved connected-letter UD logo applied across all pages. Header has an icy teal backdrop, larger bold brand text, no tagline or header CTA, and right-aligned Services / Guides / About / Contact links. Header layout, menu order, glass effect, sticky position, mobile menu, Escape dismissal, and overflow checked at eight widths from 320 to 1440 pixels.
