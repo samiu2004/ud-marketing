@@ -18,14 +18,23 @@
   if (ribbon && pause) {
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     ribbon.classList.add('ribbon-ready');
-    const updateMotionPreference = () => { pause.hidden = reducedMotion.matches; };
-    updateMotionPreference();
-    reducedMotion.addEventListener('change', updateMotionPreference);
+    const updateControl = () => {
+      const stopped = reducedMotion.matches && !ribbon.classList.contains('motion-requested');
+      const paused = ribbon.classList.contains('is-paused');
+      pause.hidden = false;
+      pause.setAttribute('aria-pressed', String(paused || stopped));
+      pause.setAttribute('aria-label', stopped ? 'Play provider ribbon' : paused ? 'Resume provider ribbon' : 'Pause provider ribbon');
+      pause.innerHTML = (stopped ? 'Play' : paused ? 'Resume' : 'Pause') + ' <span aria-hidden="true">' + (stopped || paused ? '▷' : 'Ⅱ') + '</span>';
+    };
+    updateControl();
+    reducedMotion.addEventListener('change', () => {
+      ribbon.classList.remove('motion-requested', 'is-paused');
+      updateControl();
+    });
     pause.addEventListener('click', () => {
-      const paused = ribbon.classList.toggle('is-paused');
-      pause.setAttribute('aria-pressed', String(paused));
-      pause.setAttribute('aria-label', paused ? 'Resume provider ribbon' : 'Pause provider ribbon');
-      pause.innerHTML = paused ? 'Resume <span aria-hidden="true">▷</span>' : 'Pause <span aria-hidden="true">Ⅱ</span>';
+      if (reducedMotion.matches && !ribbon.classList.contains('motion-requested')) ribbon.classList.add('motion-requested');
+      else ribbon.classList.toggle('is-paused');
+      updateControl();
     });
   }
 })();

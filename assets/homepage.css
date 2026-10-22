@@ -116,11 +116,11 @@ html:not(.js-ready) .homepage .menu-toggle{display:none}
 .homepage .provider-item img{display:block;object-fit:contain;flex-shrink:0;filter:none;opacity:1;max-width:none}
 .homepage .provider-name{display:block;font-family:Arial,"Segoe UI",sans-serif;font-size:19px;font-weight:650;letter-spacing:-.065em;white-space:nowrap;color:#0b2e33;opacity:.8}
 .homepage .provider-ribbon-note{font-size:10px;line-height:1.8;text-align:center;color:#607a7e}
-.homepage .ribbon-ready .provider-track{width:max-content;justify-content:flex-start;animation:provider-scroll 42s linear infinite;will-change:transform}
+.homepage .ribbon-ready .provider-track{width:max-content;justify-content:flex-start;animation:provider-scroll 32s linear infinite;will-change:transform}
 .homepage .ribbon-ready .provider-group{flex-wrap:nowrap;justify-content:flex-start;max-width:none;gap:58px;padding:0 32px}
 .homepage .ribbon-ready .provider-group[aria-hidden=true]{display:flex}
 .homepage .ribbon-ready.is-paused .provider-track{animation-play-state:paused}
-@media(hover:hover){.homepage .provider-viewport:hover .provider-track{animation-play-state:paused}}
+
 @keyframes provider-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:700px){.homepage .provider-ribbon{padding:23px 0 18px}.homepage .provider-ribbon-heading{justify-content:space-between;align-items:center;gap:15px}.homepage .provider-ribbon-heading h2{font-size:10px;max-width:240px;text-align:left;letter-spacing:.015em}.homepage .provider-ribbon-toggle{position:static;flex-shrink:0;font-size:9px;padding:7px 10px}.homepage .provider-viewport{margin:15px 0 10px}.homepage .provider-ribbon-note{font-size:9px;max-width:340px}.homepage .ribbon-ready .provider-group{gap:42px;padding-inline:24px}.homepage .provider-group{gap:14px 26px;padding-inline:20px}.homepage .provider-item{min-width:125px}}
 @media(prefers-reduced-motion:reduce){.homepage .ribbon-ready .provider-track{width:auto;animation:none;will-change:auto;justify-content:center;transform:none}.homepage .ribbon-ready .provider-group{flex-wrap:wrap;justify-content:center;max-width:1400px;gap:18px 45px}.homepage .ribbon-ready .provider-group[aria-hidden=true]{display:none}.homepage .provider-viewport{mask-image:none;-webkit-mask-image:none}.homepage .provider-ribbon-toggle{transition:none}}
@@ -209,3 +209,34 @@ html:not(.js-ready) .homepage .menu-toggle{display:none}
 @media(max-width:800px){.homepage .why-layout{grid-template-columns:1fr;gap:36px}.homepage .why-intro h2{max-width:600px}.homepage .why-intro p{max-width:560px}.homepage .why-benefit{padding:26px}.homepage .why-benefit h3{font-size:18px}}
 @media(max-width:480px){.homepage .why-benefits{grid-template-columns:1fr;gap:15px}.homepage .why-benefit{padding:24px}.homepage .why-benefit>.icon{margin-bottom:17px}.homepage .why-intro h2{font-size:34px}.homepage .why-intro p{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.homepage .why-benefit{transition:none}.homepage .why-benefit:hover{transform:none}}
+
+/* Sentence-case hero with a balanced three-line headline. */
+.homepage .home-hero{padding:30px 0 40px}
+.homepage .home-hero:before{background:radial-gradient(ellipse at 0% 15%,#b8e3e94a,transparent 48%),radial-gradient(ellipse at 100% 12%,#b8e3e94a,transparent 48%)}
+.homepage .home-grid{background-image:linear-gradient(#93b1b526 1px,transparent 1px),linear-gradient(90deg,#93b1b526 1px,transparent 1px);mask-image:linear-gradient(to bottom,transparent,#0009 14%,#0006 65%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#0009 14%,#0006 65%,transparent)}
+.homepage .home-hero h1{font-size:clamp(52px,5.4vw,74px);line-height:1.1;letter-spacing:-.045em;word-spacing:0;margin-top:23px}
+.homepage .headline-secondary{font-size:.96em;line-height:1.14;letter-spacing:-.045em;word-spacing:0;margin-top:6px}
+.homepage .headline-secondary>.headline-unit:last-child{font-size:1em;margin-top:4px}
+.homepage .home-hero-description{margin-top:22px;line-height:1.75}
+.homepage .home-hero-actions{margin-top:25px}
+@media(max-width:900px){.homepage .home-hero{padding:34px 0 40px}.homepage .home-hero h1{font-size:clamp(40px,6.6vw,60px)}}
+@media(max-width:700px){.homepage .home-hero{padding:30px 0 36px}.homepage .home-hero h1{font-size:clamp(32px,7.3vw,49px);line-height:1.15}.homepage .headline-secondary{font-size:.96em;margin-top:8px}.homepage .headline-secondary>.headline-unit:last-child{margin-top:4px}.homepage .home-hero-description{margin-top:22px}}
+
+/* Explicit playback remains available when reduced motion is preferred. */
+.homepage .ribbon-ready.motion-requested .provider-track{width:max-content;justify-content:flex-start;animation:provider-scroll 32s linear infinite;will-change:transform}
+.homepage .ribbon-ready.motion-requested .provider-group{flex-wrap:nowrap;justify-content:flex-start;max-width:none;gap:58px;padding:0 32px}
+.homepage .ribbon-ready.motion-requested .provider-group[aria-hidden=true]{display:flex}
+.homepage .ribbon-ready.motion-requested.is-paused .provider-track{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.homepage .ribbon-ready.motion-requested .provider-track{animation:provider-scroll 32s linear infinite!important}}
+
+/* Dark provider ribbon with high-contrast brand tiles. */
+.homepage .provider-ribbon{background:#0b2e33;border-top:1px solid #35636a;padding-top:25px;padding-bottom:22px}
+.homepage .provider-ribbon-heading h2{color:#b8e3e9}
+.homepage .provider-ribbon-note{color:#c9dcde}
+.homepage .provider-ribbon-toggle{background:#164148;color:#c9dcde;border-color:#35636a}
+.homepage .provider-ribbon-toggle:hover{background:#24535b}
+.homepage .provider-ribbon-toggle:focus-visible{outline-color:#b8e3e9}
+.homepage .provider-viewport{min-height:76px;margin-top:20px;margin-bottom:17px}
+.homepage .provider-item{height:76px;min-width:170px;padding:12px 20px;background:#fff;border:1px solid #35636a;border-radius:12px;box-shadow:0 4px 12px #0000000a}
+.homepage .ribbon-ready .provider-group,.homepage .ribbon-ready.motion-requested .provider-group{gap:26px;padding-inline:13px}
+@media(max-width:700px){.homepage .provider-item{height:70px;min-width:160px;padding:10px 17px}.homepage .provider-viewport{min-height:70px}.homepage .provider-ribbon{padding-top:23px;padding-bottom:20px}}
