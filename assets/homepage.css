@@ -155,3 +155,57 @@ html:not(.js-ready) .homepage .menu-toggle{display:none}
 @media(max-width:1000px) and (min-width:701px){.homepage .service-map{column-gap:65px;grid-template-rows:repeat(5,210px)}.homepage .service-map .service-card{padding:24px;min-height:300px}.homepage .service-map .service-card h3{font-size:23px}}
 @media(max-width:700px){.homepage .service-map{display:flex;flex-direction:column;gap:36px;margin:36px 10px 15px 24px;padding-left:22px}.homepage .service-map .service-card{width:100%;min-height:0;padding:25px 23px}.homepage .service-map .service-card h3{font-size:24px}.homepage .service-map .service-card p{font-size:13px}.homepage .service-map .card-top{margin-bottom:18px}}
 @media(prefers-reduced-motion:reduce){.homepage .map-line-active,.homepage .map-node,.homepage .service-map .service-card{transition:none}.homepage .map-line-active{stroke-dashoffset:0}}
+
+/* Homepage pricing packages. */
+.homepage .home-pricing .package-heading{text-align:center;max-width:760px;margin:0 auto 44px}
+.homepage .package-heading .eyebrow{color:#4f7c82;font-size:10px;letter-spacing:.14em}
+.homepage .package-heading h2{font-family:var(--home-font);font-size:clamp(32px,3.3vw,46px);font-weight:750;line-height:1.2;margin:16px 0;letter-spacing:-.045em}
+.homepage .package-heading p{font-size:14px;line-height:1.8}
+.homepage .package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.homepage .package-card{display:flex;flex-direction:column;background:#fff;border:1px solid #b9cdcf;border-radius:18px;padding:28px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.homepage .package-card:hover{transform:translateY(-4px);border-color:#4f7c82;box-shadow:0 16px 32px #0b2e330c}
+.homepage .package-featured{border:2px solid #0b2e33;padding:27px;background:linear-gradient(160deg,#e7f5f6,#fff 55%);box-shadow:0 10px 30px #0b2e3308}
+.homepage .package-topline{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:25px;margin-bottom:24px;font-size:10px;letter-spacing:.1em;color:#4f7c82}
+.homepage .package-badge{background:#0b2e33;color:white;font-size:9px;font-weight:700;padding:5px 10px;border-radius:999px;letter-spacing:.09em}
+.homepage .package-card h3{font-size:26px;font-weight:750;color:#0b2e33}
+.homepage .package-subtitle{font-size:12px;margin-top:7px;line-height:1.6;color:#536e73}
+.homepage .package-price{font-size:46px;font-weight:800;line-height:1.15;letter-spacing:-.05em;color:#0b2e33;margin:26px 0 20px}
+.homepage .package-price span{display:block;font-size:10px;font-weight:500;letter-spacing:0;line-height:1.7;margin-top:9px;color:#536e73}
+.homepage .package-custom{font-size:32px;line-height:1.65;letter-spacing:-.045em}
+.homepage .package-custom span{line-height:1.7;margin-top:9px}
+.homepage .package-description{font-size:12px;line-height:1.85;min-height:67px;padding-bottom:20px;border-bottom:1px solid #dce7e7}
+.homepage .package-features{list-style:none;padding:0;margin:23px 0 28px;display:flex;flex-direction:column;gap:13px}
+.homepage .package-features li{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.75;color:#27484d}
+.homepage .package-features li>span{color:#4f7c82;flex-shrink:0;font-size:13px}
+.homepage .package-card>.button{width:100%;margin-top:auto;min-height:48px;justify-content:space-between;font-size:12px;padding:13px 17px;gap:10px;border-radius:999px}
+.homepage .package-secondary{background:white;color:#0b2e33;border:1px solid #93b1b5;box-shadow:none}
+.homepage .package-secondary:hover{background:#f0f8f8;border-color:#4f7c82}
+.homepage .package-terms{margin-top:29px;color:#536e73}
+.homepage .package-main-note{max-width:960px;margin:auto;text-align:center;font-size:11px;line-height:1.9}
+.homepage .package-terms-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;padding-top:24px;margin-top:23px;border-top:1px solid #d8e5e4}
+.homepage .package-terms h3{font-size:12px;letter-spacing:0;font-weight:700;line-height:1.5;margin-bottom:7px}
+.homepage .package-terms-grid p{font-size:11px;line-height:1.9}
+@media(max-width:1050px) and (min-width:801px){.homepage .package-grid{gap:14px}.homepage .package-card{padding:22px 19px}.homepage .package-featured{padding:21px 18px}.homepage .package-custom{font-size:28px}.homepage .package-card>.button{font-size:11px;padding-inline:13px}.homepage .package-features li{font-size:11px}}
+@media(max-width:800px){.homepage .package-grid{grid-template-columns:1fr;max-width:560px;margin:auto;gap:24px}.homepage .package-description{min-height:0}.homepage .package-topline{margin-bottom:20px}.homepage .package-terms-grid{grid-template-columns:1fr;gap:19px}.homepage .package-terms{max-width:560px;margin:27px auto 0}.homepage .package-heading{margin-bottom:32px}.homepage .package-heading p{font-size:13px}.homepage .package-card{padding:27px}.homepage .package-featured{padding:26px}}
+@media(prefers-reduced-motion:reduce){.homepage .package-card{transition:none}.homepage .package-card:hover{transform:none}}
+
+/* Dark visual break: Why UD Marketing only. */
+.homepage .why-dark{position:relative;background:#0b2e33;color:#fff;border:0;isolation:isolate}
+.homepage .why-dark:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 88% 20%,#4f7c821f,transparent 62%)}
+.homepage .why-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:75px;align-items:center}
+.homepage .why-intro .eyebrow{color:#b8e3e9;font-size:10px;letter-spacing:.15em}
+.homepage .why-intro h2{color:#fff;font-family:var(--home-font);font-size:clamp(33px,3.1vw,45px);font-weight:750;line-height:1.2;letter-spacing:-.045em;margin:20px 0 23px;max-width:480px}
+.homepage .why-intro p{color:#c9dcde;font-size:14px;line-height:1.9;max-width:440px}
+.homepage .why-consultation{background:#b8e3e9;color:#0b2e33;border:1px solid #b8e3e9;box-shadow:none;margin-top:30px;font-size:12px;padding:15px 23px;min-height:50px;gap:27px;border-radius:999px}
+.homepage .why-consultation:hover{background:#d2eef1;color:#0b2e33;box-shadow:0 8px 20px #0002}
+.homepage .why-dark a:focus-visible{outline-color:#b8e3e9}
+.homepage .why-benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.homepage .why-benefit{background:#164148;border:1px solid #35636a;border-radius:16px;padding:26px 23px;transition:transform .2s ease,border-color .2s ease}
+.homepage .why-benefit:hover{transform:translateY(-3px);border-color:#93b1b5}
+.homepage .why-benefit>.icon{color:#b8e3e9;width:28px;height:28px;margin-bottom:22px}
+.homepage .why-benefit h3{color:#fff;font-size:17px;font-weight:700;line-height:1.4;letter-spacing:-.025em;margin:0 0 11px}
+.homepage .why-benefit p{color:#c9dcde;font-size:12px;line-height:1.85}
+@media(max-width:1050px){.homepage .why-layout{gap:35px;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}.homepage .why-benefit{padding:23px 19px}}
+@media(max-width:800px){.homepage .why-layout{grid-template-columns:1fr;gap:36px}.homepage .why-intro h2{max-width:600px}.homepage .why-intro p{max-width:560px}.homepage .why-benefit{padding:26px}.homepage .why-benefit h3{font-size:18px}}
+@media(max-width:480px){.homepage .why-benefits{grid-template-columns:1fr;gap:15px}.homepage .why-benefit{padding:24px}.homepage .why-benefit>.icon{margin-bottom:17px}.homepage .why-intro h2{font-size:34px}.homepage .why-intro p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.homepage .why-benefit{transition:none}.homepage .why-benefit:hover{transform:none}}
