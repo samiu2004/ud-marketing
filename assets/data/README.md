@@ -23,10 +23,10 @@ The browser rejects invalid/missing/negative fees, duplicate state codes or name
 
 `assets/data/llc-packages.json` contains the approved package names, service fees, inclusions, and support levels. Custom has `fee: null` and is excluded from calculations and the comparison table. Initial formation totals contain only fixed package fees plus the selected state's listed initial filing fee.
 
-The page's static package cards and comparison table are kept crawlable. If approved package prices or inclusions change later, update both the package JSON and the matching markup in `pricing.html`. State-fee updates do not require HTML changes.
+The homepage and Pricing page cards share this configuration. After an approved package edit, run `node scripts/sync-pricing.cjs` from the repository root to refresh both sets of crawlable cards. Review the detailed comparison table separately if entitlements change. State-fee updates require only their JSON value; they do not require HTML changes.
 
 ## Route and existing homepage
 
-The full Pricing page is `/pricing.html`, matching the site's HTML route convention. The pre-existing homepage pricing section and its navigation were preserved under the master prompt's scope restriction; they still show the previous Launch/Grow/Expand offering until the owner authorizes a separate homepage update. Do not imply those older inclusive prices are additive service fees.
+The full Pricing page is `/pricing.html`, matching the site's HTML route convention. The homepage now displays the same Basic, Standard, Premium, and Custom packages. Its fee controls link to `/pricing.html?package=...#fee-checker`, preserving package selection. All fixed package prices exclude state filing fees.
 
 The Get Started form accepts Basic, Standard, Premium, Custom, and legacy package URLs. Optional `state=WY` style parameters preserve the selected formation state in the inquiry and WhatsApp handoff. Form submission remains inactive pending delivery integration.

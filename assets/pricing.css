@@ -7,3 +7,6 @@
 
 /* Compact checker results; other pricing sections retain their layout. */
 .pricing-page .fee-result{min-height:0;padding:25px 28px}.pricing-page .fee-result dl>div{padding-block:11px}.pricing-page .fee-result .fee-total{margin-top:10px;padding-top:17px}.pricing-page .fee-result .fee-disclosure{font-size:11px;line-height:1.8;margin-top:15px}.fee-result-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:7px}.pricing-page .fee-result-actions #fee-consultation{margin-top:0}.pricing-page .fee-result-actions #fee-official-source{margin-top:0;font-size:10px;min-height:36px;align-content:center}@media(max-width:700px){.pricing-page .fee-result{padding:23px}.fee-result-actions{gap:8px}}
+
+/* Homepage cards use the shared pricing design without changing other sections. */
+.home-pricing .plan-card h3{font-size:25px;line-height:1.2;font-weight:750;letter-spacing:-.04em}.home-pricing .plan-premium h3{color:#fff}.homepage .home-pricing .plan-grid{gap:16px}@media(min-width:1151px){.homepage .home-pricing>.container{width:min(1320px,calc(100% - 64px))}}
