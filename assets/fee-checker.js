@@ -19,7 +19,7 @@
   const url=officialUrl(selectedState?.officialSourceUrl);
   if(selectedState?.officialVerificationStatus==='VERIFIED'&&url&&validDate(selectedState.lastOfficialVerifiedDate)){
    verification.textContent='Listed filing fee checked against the official state source.';sourceLink.href=url;sourceLink.hidden=false;verifiedDate.textContent='Last Verified: '+selectedState.lastOfficialVerifiedDate;verifiedDate.hidden=false;
-  }else verification.textContent=selectedState?'Official-source verification pending for '+selectedState.state+'. This is a preliminary listed fee, not a confirmed current government quote.':'State fees are preliminary research values. Official-source verification is pending.';
+  }else verification.textContent=selectedState?'Official-source verification pending for '+selectedState.state+'. This is a preliminary listed fee, not a confirmed current government quote.':'State filing fees are estimates. Official-source verification is pending.';
   const params=new URLSearchParams();if(plan)params.set('package',plan.id);if(selectedState)params.set('state',selectedState.code);consultation.href='/get-started/'+(params.size?'?'+params.toString():'')+'#consultation';
  };
  const highlight=index=>{active=index;[...list.querySelectorAll('[role=option]')].forEach((option,i)=>option.setAttribute('aria-selected',String(i===active)));if(active>=0){const option=list.querySelectorAll('[role=option]')[active];input.setAttribute('aria-activedescendant',option.id);option.scrollIntoView({block:'nearest'});}else input.removeAttribute('aria-activedescendant');};
@@ -42,23 +42,23 @@
  document.addEventListener('click',event=>{if(!event.target.closest('.fee-state-field'))close();});
  input.addEventListener('blur',()=>{const exact=states.find(s=>s.state.toLowerCase()===input.value.trim().toLowerCase()||s.code===input.value.trim().toUpperCase());if(exact)choose(exact);else if(input.value.trim()){selectedState=null;input.setAttribute('aria-invalid','true');hint.textContent='Select a valid state from the list to calculate a total.';render();}});
  packageSelect.addEventListener('change',render);
- const setPackage=id=>{if(plans.some(p=>p.id===id)){packageSelect.value=id;render();}};
+ const setPackage=id=>{packageSelect.value=plans.some(p=>p.id===id)?id:'basic';render();};
  document.querySelectorAll('[data-fee-package]').forEach(button=>button.addEventListener('click',()=>{
   requestedPackage=button.dataset.feePackage;setPackage(requestedPackage);section.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});if(!input.disabled)input.focus({preventScroll:true});
  }));
  const load=async()=>{
-  if(loading)return;loading=true;input.disabled=true;packageSelect.disabled=true;retry.hidden=true;loadStatus.textContent='Loading the local state-fee dataset…';close();
+  if(loading)return;loading=true;input.disabled=true;packageSelect.disabled=true;retry.hidden=true;loadStatus.hidden=false;loadStatus.textContent='Loading state filing fees…';close();
   try{
    const responses=await Promise.all([fetch('/assets/data/llc-state-fees.json'),fetch('/assets/data/llc-packages.json')]);if(responses.some(r=>!r.ok))throw Error('Dataset unavailable');const [data,config]=await Promise.all(responses.map(r=>r.json()));
    if(data.currency!=='USD'||!Array.isArray(data.states)||data.states.length!==50||new Set(data.states.map(s=>s.code)).size!==50||new Set(data.states.map(s=>s.state)).size!==50||!data.states.every(s=>expectedCodes.includes(s.code)&&typeof s.state==='string'&&s.state.trim()&&typeof s.formationFeeUsd==='number'&&Number.isFinite(s.formationFeeUsd)&&s.formationFeeUsd>=0&&Number.isSafeInteger(Math.round(s.formationFeeUsd*100))&&typeof s.recurringFeeUsd==='number'&&Number.isFinite(s.recurringFeeUsd)&&s.recurringFeeUsd>=0))throw Error('Invalid state data');
    if(config.currency!=='USD'||!Array.isArray(config.packages))throw Error('Invalid package data');const fixed=config.packages.filter(p=>p.fee!==null);if(fixed.length!==3||new Set(fixed.map(p=>p.id)).size!==3||!fixed.every(p=>['basic','standard','premium'].includes(p.id)&&typeof p.name==='string'&&Number.isFinite(p.fee)&&p.fee>=0))throw Error('Invalid package prices');
    states=[...data.states].sort((a,b)=>a.state.localeCompare(b.state,'en'));plans=fixed;
-   packageSelect.replaceChildren(new Option('Select a package',''),...plans.map(p=>new Option(p.name+' — '+money.format(p.fee),p.id)));
+   packageSelect.replaceChildren(...plans.map(p=>new Option(p.name+' — '+money.format(p.fee),p.id)));
    const params=new URLSearchParams(location.search);setPackage(requestedPackage||params.get('package'));const requestedState=params.get('state');if(requestedState){const match=states.find(s=>s.code===requestedState.toUpperCase());if(match)choose(match);}
-   input.disabled=false;packageSelect.disabled=false;loadStatus.textContent='50 states available · USD · manually maintained research data.';render();loading=false;
+   input.disabled=false;packageSelect.disabled=false;loadStatus.textContent='';loadStatus.hidden=true;render();loading=false;
    if(requestedPackage){input.focus({preventScroll:true});open();}
   }catch{
-   states=[];plans=[];selectedState=null;render();loadStatus.textContent='The fee data could not be loaded or validated. No estimate is available. Please retry or request a consultation.';retry.hidden=false;
+   states=[];plans=[];selectedState=null;render();loadStatus.hidden=false;loadStatus.textContent='The estimate is temporarily unavailable. Please retry or request a consultation.';retry.hidden=false;
   }finally{loading=false;}
  };
  retry.addEventListener('click',load);load();

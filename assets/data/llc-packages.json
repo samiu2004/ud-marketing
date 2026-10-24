@@ -22,11 +22,11 @@
       "features": [
         "Articles of Organization",
         "Certificate of Good Standing (where available)",
-        "Unique Virtual Address with Suite Number",
+        "Unique Virtual Address",
         "Business Presence Package — 3 Months",
         "Registered Agent for 1 Year",
         "EIN Letter",
-        "Personal USD Account Assistance, through Nsave or Elevate Pay where eligible"
+        "Personal USD Account"
       ],
       "support": "Email + Chat"
     },
@@ -42,7 +42,8 @@
         "Business Presence Package — 3 Months",
         "Registered Agent for 1 Year",
         "EIN Letter",
-        "USD Business Account Assistance through Payoneer Business, where eligible"
+        "Operating Agreement",
+        "Business USD Account"
       ],
       "support": "Priority"
     },
@@ -50,7 +51,7 @@
       "id": "custom",
       "name": "Custom",
       "fee": null,
-      "description": "Tailored services for specific business requirements.",
+      "description": "For teams and enterprises.",
       "features": [
         "Individual Services",
         "ITIN Assistance",
