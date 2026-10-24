@@ -1,0 +1,63 @@
+{
+  "currency": "USD",
+  "packages": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "fee": 150,
+      "description": "Essential LLC formation services.",
+      "features": [
+        "Articles of Organization",
+        "US Virtual Address",
+        "Registered Agent for 1 Year",
+        "EIN Letter"
+      ],
+      "support": "Email"
+    },
+    {
+      "id": "standard",
+      "name": "Standard",
+      "fee": 200,
+      "description": "Formation with enhanced business setup services.",
+      "features": [
+        "Articles of Organization",
+        "Certificate of Good Standing (where available)",
+        "Unique Virtual Address with Suite Number",
+        "Business Presence Package — 3 Months",
+        "Registered Agent for 1 Year",
+        "EIN Letter",
+        "Personal USD Account Assistance, through Nsave or Elevate Pay where eligible"
+      ],
+      "support": "Email + Chat"
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "fee": 300,
+      "description": "Formation with business banking assistance.",
+      "features": [
+        "Articles of Organization",
+        "Certificate of Good Standing (where available)",
+        "Unique Virtual Address with Suite Number",
+        "Business Presence Package — 3 Months",
+        "Registered Agent for 1 Year",
+        "EIN Letter",
+        "USD Business Account Assistance through Payoneer Business, where eligible"
+      ],
+      "support": "Priority"
+    },
+    {
+      "id": "custom",
+      "name": "Custom",
+      "fee": null,
+      "description": "Tailored services for specific business requirements.",
+      "features": [
+        "Individual Services",
+        "ITIN Assistance",
+        "Amazon Consultation",
+        "E-commerce Consultation",
+        "Dedicated Manager"
+      ]
+    }
+  ]
+}
