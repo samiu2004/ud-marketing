@@ -4,7 +4,7 @@
  const input=document.querySelector('#fee-state'),list=document.querySelector('#fee-state-list'),packageSelect=document.querySelector('#fee-package');
  const loadStatus=document.querySelector('#fee-load-status'),retry=document.querySelector('#fee-retry'),hint=document.querySelector('#fee-state-hint');
  const amount=id=>document.querySelector(id);const serviceAmount=amount('#fee-service-amount'),stateAmount=amount('#fee-state-amount'),totalAmount=amount('#fee-total-amount');
- const verification=amount('#fee-verification'),sourceLink=amount('#fee-official-source'),verifiedDate=amount('#fee-verified-date'),consultation=amount('#fee-consultation');
+ const stateLabel=amount('#fee-state-label'),sourceLink=amount('#fee-official-source'),consultation=amount('#fee-consultation');
  const expectedCodes='AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY'.split(' ');
  const money=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:2});
  let states=[],plans=[],selectedState=null,filtered=[],active=-1,loading=false,requestedPackage='';
@@ -15,11 +15,12 @@
   const plan=plans.find(p=>p.id===packageSelect.value);const fee=selectedState?.formationFeeUsd;
   serviceAmount.textContent=plan?money.format(plan.fee):'—';stateAmount.textContent=selectedState?money.format(fee):'—';totalAmount.textContent=plan&&selectedState?money.format((Math.round(plan.fee*100)+Math.round(fee*100))/100):'—';
   amount('#fee-selection').textContent=selectedState&&plan?selectedState.state+' · '+plan.name:selectedState?selectedState.state+' · choose a package':plan?plan.name+' · choose a state':'Choose a state and package';
-  sourceLink.hidden=true;sourceLink.removeAttribute('href');verifiedDate.hidden=true;verifiedDate.textContent='';
+  sourceLink.hidden=true;sourceLink.removeAttribute('href');sourceLink.removeAttribute('title');sourceLink.removeAttribute('aria-label');
+  stateLabel.textContent='State Government Filing Fee';
   const url=officialUrl(selectedState?.officialSourceUrl);
   if(selectedState?.officialVerificationStatus==='VERIFIED'&&url&&validDate(selectedState.lastOfficialVerifiedDate)){
-   verification.textContent='Listed filing fee checked against the official state source.';sourceLink.href=url;sourceLink.hidden=false;verifiedDate.textContent='Last Verified: '+selectedState.lastOfficialVerifiedDate;verifiedDate.hidden=false;
-  }else verification.textContent=selectedState?'Official-source verification pending for '+selectedState.state+'. This is a preliminary listed fee, not a confirmed current government quote.':'State filing fees are estimates. Official-source verification is pending.';
+   sourceLink.href=url;sourceLink.hidden=false;sourceLink.title='Verified '+selectedState.lastOfficialVerifiedDate;sourceLink.setAttribute('aria-label','Official state source, verified '+selectedState.lastOfficialVerifiedDate);
+  }else if(selectedState)stateLabel.textContent='State Government Filing Fee (estimate)';
   const params=new URLSearchParams();if(plan)params.set('package',plan.id);if(selectedState)params.set('state',selectedState.code);consultation.href='/get-started/'+(params.size?'?'+params.toString():'')+'#consultation';
  };
  const highlight=index=>{active=index;[...list.querySelectorAll('[role=option]')].forEach((option,i)=>option.setAttribute('aria-selected',String(i===active)));if(active>=0){const option=list.querySelectorAll('[role=option]')[active];input.setAttribute('aria-activedescendant',option.id);option.scrollIntoView({block:'nearest'});}else input.removeAttribute('aria-activedescendant');};

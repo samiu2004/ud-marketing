@@ -132,11 +132,11 @@
       "internalFormationTier": "Mid-range",
       "internalRecurringTier": "Moderate recurring cost",
       "separateTaxReviewRequired": false,
-      "notes": "Includes required $25 registered agent designation filing fee",
+      "notes": "Includes required $25 registered agent designation filing fee Official formation fee verified: $100 required filing fee + $25 required registered-agent fee = $125. Optional $30 certified copy and $5 certificate of status are excluded.",
       "researchSource": "https://llcatlas.com/llc/cost-by-state/",
-      "officialSourceUrl": null,
-      "officialVerificationStatus": "PENDING",
-      "lastOfficialVerifiedDate": null
+      "officialSourceUrl": "https://dos.fl.gov/sunbiz/forms/fees/",
+      "officialVerificationStatus": "VERIFIED",
+      "lastOfficialVerifiedDate": "2026-10-25"
     },
     {
       "state": "Georgia",
