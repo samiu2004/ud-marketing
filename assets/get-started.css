@@ -8,3 +8,5 @@
 .get-started-page .gs-path>.gs-symbol{width:36px;height:36px;flex-shrink:0}
 
 @media(min-width:801px){.get-started-page .gs-timeline{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 90px}.get-started-page .gs-timeline:before{content:"";position:absolute;top:20px;bottom:20px;left:50%;border-left:1px solid #b8d0d3}.get-started-page .gs-timeline li{padding:0 25px 0 0}.get-started-page .gs-timeline li:nth-child(even){padding:0 0 0 25px}.get-started-page .gs-timeline li:before{left:42px;right:-45px;top:20px}.get-started-page .gs-timeline li:nth-child(even):before{left:-45px;right:0}.get-started-page .gs-timeline li:nth-child(6):before{display:none}}
+
+.gs-step:before{content:"";width:6px;height:6px;background:#4f7c82;border-radius:50%}

@@ -36,3 +36,6 @@
 @media(max-width:370px){.homepage .floating-heading h2{font-size:29px}.floating-node,.floating-node:nth-of-type(odd),.floating-expanded .floating-category,.floating-expanded .floating-category:nth-of-type(odd){column-gap:13px}.floating-category h2{font-size:25px}.floating-page-hero h1{font-size:38px}.floating-service h3{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.floating-icon,.floating-icon svg,.floating-ink,.floating-nav a,.floating-overview h3 a{transition:none}.floating-motion .floating-ink{stroke-dashoffset:0}.floating-motion .floating-icon svg{opacity:1;transform:none}}
 @media(max-width:700px){.floating-overview .floating-node:nth-of-type(odd){text-align:left}}
+
+/* Soft white light behind the homepage service composition. */
+.homepage .floating-home{background:radial-gradient(ellipse at 24% 48%,#ffffffed 0%,#ffffffa6 22%,transparent 52%),radial-gradient(ellipse at 80% 69%,#ffffffe6 0%,#ffffff80 20%,transparent 49%),radial-gradient(ellipse at 54% 20%,#b8e3e919,transparent 65%),#f7faf9}
