@@ -240,3 +240,18 @@ html:not(.js-ready) .homepage .menu-toggle{display:none}
 .homepage .provider-item{height:76px;min-width:170px;padding:12px 20px;background:#fff;border:1px solid #35636a;border-radius:12px;box-shadow:0 4px 12px #0000000a}
 .homepage .ribbon-ready .provider-group,.homepage .ribbon-ready.motion-requested .provider-group{gap:26px;padding-inline:13px}
 @media(max-width:700px){.homepage .provider-item{height:70px;min-width:160px;padding:10px 17px}.homepage .provider-viewport{min-height:70px}.homepage .provider-ribbon{padding-top:23px;padding-bottom:20px}}
+
+/* Compact, continuously moving provider ribbon. */
+.homepage .provider-ribbon{background:#c7e0e3;border-top:1px solid #b3d1d5;padding:17px 0 14px}
+.homepage .provider-ribbon-heading{justify-content:center;min-height:18px}
+.homepage .provider-ribbon-heading h2{color:#274e54;max-width:none;text-align:center;font-size:10px}
+.homepage .provider-ribbon-note{color:#375b61;font-size:9px;max-width:none}
+.homepage .provider-viewport{min-height:48px;margin:12px 0 10px}
+.homepage .provider-track{width:max-content;justify-content:flex-start;animation:provider-scroll 32s linear infinite;will-change:transform}
+.homepage .provider-group{flex-wrap:nowrap;justify-content:flex-start;max-width:none;gap:48px;padding:0 24px}
+.homepage .provider-group[aria-hidden=true]{display:flex}
+.homepage .provider-item{height:48px;min-width:125px;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.homepage .provider-elevate img{padding:6px 10px;border-radius:6px}
+.homepage .provider-zionpe img{padding:0 8px;border-radius:6px}
+@media(max-width:700px){.homepage .provider-ribbon{padding:16px 0 13px}.homepage .provider-group{gap:35px;padding-inline:18px}.homepage .provider-ribbon-heading h2{font-size:9px}.homepage .provider-ribbon-note{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.homepage .provider-track{animation:provider-scroll 32s linear infinite!important}}
